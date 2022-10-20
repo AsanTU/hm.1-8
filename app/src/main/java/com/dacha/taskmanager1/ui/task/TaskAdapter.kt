@@ -19,6 +19,11 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
             )
         )
     }
+    fun addTask(tasks: Tasks){
+        task.add(0, tasks)
+        notifyItemChanged(0)
+
+    }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bind()

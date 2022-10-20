@@ -6,18 +6,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.dacha.taskmanager1.R
+import com.dacha.taskmanager1.data.Tasks
 import com.dacha.taskmanager1.databinding.FragmentHomeBinding
+import com.dacha.taskmanager1.ui.home.HomeFragment.Companion.TASK
+import com.dacha.taskmanager1.ui.task.TaskAdapter
+import com.dacha.taskmanager1.ui.task.TaskFragment
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private lateinit var adapter: TaskAdapter
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        adapter = TaskAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,10 +43,22 @@ class HomeFragment : Fragment() {
         binding.btnFab.setOnClickListener{
             findNavController().navigate(R.id.taskFragment)
         }
+        setFragmentResultListener(
+            TASK
+        ){
+                _, result ->
+            val task = result.getSerializable("key_task")as Tasks
+            adapter.addTask(task)
+            binding.taskRecycler.adapter = adapter
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    companion object{
+        const val TASK = "key.list"
+        const val NOTE = "key.live"
     }
 }

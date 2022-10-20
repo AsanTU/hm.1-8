@@ -32,4 +32,9 @@
         android:name="com.dacha.taskmanager1.ui.task.TaskFragment"
         android:label="fragment_task"
         tools:layout="@layout/fragment_task" />
+    <fragment
+        android:id="@+id/onBoardinfFragment"
+        android:name="com.dacha.taskmanager1.ui.onBoarding.onBoardingFragment"
+        android:label="fragment_onBoarding"
+        tools:layout="@layout/fragment_on_boarding" />
 </navigation>
