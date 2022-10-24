@@ -13,16 +13,52 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-
     <EditText
-        android:id="@+id/et_first"
+        android:id="@+id/et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/iv_image"
-        app:layout_constraintTop_toTopOf="@+id/iv_image"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_image"
-        android:hint="write here"
-        android:textColorHint="@color/black"/>
+        app:layout_constraintStart_toEndOf="@id/iv_image"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="@string/write_your_name"
+        android:textColorHint="@color/black"
+        tools:ignore="UnknownId" />
+    <EditText
+        android:id="@+id/et_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_image"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/et_name"
+        android:hint="@string/write_your_age1"
+        android:textColorHint="@color/black"
+        tools:ignore="UnknownId" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/gray"
+        android:text="@string/save"
+        android:textSize="20sp"
+        android:id="@+id/btn_save"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="34dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/gray"
+        android:text="@string/load"
+        android:textSize="20sp"
+        android:id="@+id/btn_load"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_save"
+        android:layout_marginEnd="34dp"
+        />
+
 
 
 

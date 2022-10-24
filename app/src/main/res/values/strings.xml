@@ -13,4 +13,13 @@
     <string name="text">text</string>
     <string name="get_started">Get Started</string>
     <string name="skip">Skip</string>
+    <string name="description">Description</string>
+    <string name="start">Start</string>
+    <string name="titlee">Title</string>
+    <string name="write_here">write here</string>
+    <string name="write_your_age">write your age</string>
+    <string name="save">SAVE</string>
+    <string name="write_your_name">Write your name</string>
+    <string name="write_your_age1">Write your age</string>
+    <string name="load">load</string>
 </resources>

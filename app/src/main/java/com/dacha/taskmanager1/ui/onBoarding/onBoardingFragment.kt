@@ -5,14 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.PagerSnapHelper
-import androidx.recyclerview.widget.SnapHelper
-import com.dacha.taskmanager1.R
-import com.dacha.taskmanager1.data.onBoard
+import androidx.navigation.fragment.findNavController
+import com.dacha.taskmanager1.data.local.PrefOnBoarding
 import com.dacha.taskmanager1.databinding.FragmentOnBoardingBinding
 
-class onBoardingFragment : Fragment() {
-    private var adapter= onBoardingAdapter()
+class onBoardingFragment: Fragment() {
+    private lateinit var pref:PrefOnBoarding
+
     private lateinit var binding:FragmentOnBoardingBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +24,13 @@ class onBoardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pref = PrefOnBoarding(requireContext())
+        val adapter=onBoardingAdapter{
+            pref.saveOnBoardingShow(true)
+            findNavController().navigateUp()
+        }
         binding.viewPager.adapter = adapter
         binding.wormDotsIndicator.setViewPager2(binding.viewPager)
-    }
 
+    }
 }
