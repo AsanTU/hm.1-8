@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class PrefOnBoarding(private val context: Context) {
 
-    private var pref : SharedPreferences = context.getSharedPreferences(PREF_NAME , Context.MODE_PRIVATE)
+    private var pref : SharedPreferences = context.getSharedPreferences(PREF_BOARD , Context.MODE_PRIVATE)
 
 
     fun isonBoardingShow():Boolean{
@@ -14,9 +14,24 @@ class PrefOnBoarding(private val context: Context) {
     fun saveOnBoardingShow(isShow: Boolean){
         pref.edit().putBoolean(SHOW_BOARDING , isShow).apply()
     }
+    fun getName():String?{
+        return pref.getString(SHOW_NAME , "")
+    }
+    fun saveName(name: String){
+        pref.edit().putString(SHOW_NAME , name).apply()
+    }
+    fun getAge():String?{
+        return pref.getString(SHOW_AGE , "")
+    }
+    fun saveAge(age: String){
+        pref.edit().putString(SHOW_AGE , age).apply()
+    }
+
 
     companion object{
-        const val PREF_NAME = "pref.task"
+        const val PREF_BOARD = "pref.task"
         const val SHOW_BOARDING = "board"
+        const val SHOW_AGE = "age"
+        const val SHOW_NAME = "name"
     }
 }
