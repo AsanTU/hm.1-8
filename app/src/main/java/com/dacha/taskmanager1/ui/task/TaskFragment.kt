@@ -26,8 +26,8 @@ class TaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnAdd.setOnClickListener{
             val task = Tasks(
-                title = binding.edTitle.text.toString() ,
-                desc = binding.edDesc.text.toString()
+                title = binding.edTitle.toString(),
+                desc = binding.edDesc.toString()
             )
             setFragmentResult(
                 HomeFragment.TASK , bundleOf("key_task" to task)

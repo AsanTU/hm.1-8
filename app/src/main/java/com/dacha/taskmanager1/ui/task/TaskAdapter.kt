@@ -36,8 +36,6 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
             val item = task[adapterPosition]
             binding.title.text = item.title
             binding.desc.text = item.desc
-
-
         }
     }
 

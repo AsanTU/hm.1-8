@@ -12,9 +12,9 @@ import com.dacha.taskmanager1.databinding.ItemOnboardBinding
 
 class onBoardingAdapter(private val onClick : () -> Unit) : RecyclerView.Adapter<onBoardingAdapter.onBoardingViewHolder>() {
     private val array = arrayListOf<onBoard>(
-        onBoard(title = "Title = 1" , "desc=1" , R.drawable.ic_launcher_background),
-        onBoard(title = "Title = 2" , "desc=2" , R.drawable.daigo),
-        onBoard(title = "Title = 3" , "desc=3" , R.drawable.daigo)
+        onBoard(title = "Title = 1" , "desc=1" , R.raw.item_onboard),
+        onBoard(title = "Title = 2" , "desc=2" , R.raw.item_onboard_2),
+        onBoard(title = "Title = 3" , "desc=3" , R.raw.typing)
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): onBoardingViewHolder {
@@ -31,7 +31,7 @@ class onBoardingAdapter(private val onClick : () -> Unit) : RecyclerView.Adapter
         fun bind(onBoard: onBoard) {
             binding.textTitle.text = onBoard.title
             binding.textDesc.text = onBoard.desc
-            binding.ImageView.setImageResource(R.drawable.ic_launcher_background)
+            binding.ImageView.setAnimation(onBoard.image)
             binding.btnStart.isVisible = adapterPosition == array.lastIndex
             binding.textSkip.isVisible = adapterPosition != array.lastIndex
             binding.btnStart.setOnClickListener{
@@ -40,8 +40,6 @@ class onBoardingAdapter(private val onClick : () -> Unit) : RecyclerView.Adapter
             binding.textSkip.setOnClickListener{
                 onClick()
             }
-
         }
     }
-
 }
