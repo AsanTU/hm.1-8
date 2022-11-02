@@ -28,14 +28,13 @@
         android:layout_margin ="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_add"
         android:textColorHint="@color/black"
-        android:hint="@string/desc"
         app:boxStrokeColor="@color/purple_500"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_marginBottom="40dp"
             android:id="@+id/ed_desc"
-            android:text="ads"
+            android:hint="@string/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
